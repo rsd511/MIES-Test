@@ -1,0 +1,68 @@
+.Intro {
+    height: 90%;
+}
+
+
+.Prompt {
+    text-align: center;
+    background-color: white;
+    color: #2055CC;
+    margin: 0px;
+    padding: 30px;
+    padding-bottom: 50px;
+    height: 24%;
+}
+
+.Prompt p {
+    font-size: 36px;
+    padding-bottom: 8px;
+}
+
+.Prompt button {
+    border: 0px;
+    padding: 8px 24px;
+    background-image: linear-gradient(to bottom, rgba(32, 85, 204, 0.3), #2055CC, #2055CC);
+    font-size: 18px;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+}
+.Prompt button:hover {
+    box-shadow: #2055CC 0px 0px 4px 0px;
+    cursor: pointer;
+}
+.Prompt button:active {
+    background-image: linear-gradient(to bottom, #2055CC, #2055CC, rgba(32, 85, 204, 0.3));
+}
+
+.Definition {
+    margin-top: 1%;
+    height: 62%;
+    margin-bottom: 1%;
+}
+.card {
+    float: left;
+    width: 32%;
+    background-color: white;
+    height: 100%;
+}
+.card:nth-child(1) {
+    margin-left: 1%;
+    margin-right: 0.5%;
+}
+.card:nth-child(2) {
+    margin: 0% 0.5%;
+}
+.card:nth-child(3) {
+    margin-right: 1%;
+    margin-left: 0.5%;
+}
+
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 1024px) {
+    .Prompt button {
+        font-size: 36px;
+    }
+}

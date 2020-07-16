@@ -1,3 +1,9 @@
-body {
+html, body {
+  background-color: #2055CC;
   margin: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
 }
