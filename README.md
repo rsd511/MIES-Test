@@ -9,6 +9,6 @@ The aim of this project is to connect a Web-App to a Machine Learning Model trai
 
 ---
 
-Documentation of the data: [Click](https://openpsychometrics.org/tests/MIES/development/)
+Documentation of the data: [Click](https://openpsychometrics.org/tests/MIES/development/)  
 Source of data : [Click](https://openpsychometrics.org/_rawdata/MIES_Dev_Data.zip)
 
