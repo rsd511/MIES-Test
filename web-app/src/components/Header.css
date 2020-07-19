@@ -1,0 +1,81 @@
+.Nav {
+  position: fixed;
+  width: 100%;
+}
+
+.Nav ul {
+  display: inline-block;
+  width: 100%;
+  padding-left: 0px;
+}
+
+.Nav ul li {
+  display: inline-block;
+  position: relative;
+  width: 10%;
+}
+.Nav ul li:nth-child(2) {
+  width: 80%;
+}
+
+#home {
+  text-align: center;
+}
+
+#theme {
+  text-align: center;
+}
+
+#github {
+  text-align: center;
+}
+
+#theme button {
+  width : 20px;
+  height: 20px;
+  vertical-align: bottom;
+  border-radius: 50%;
+  margin: 5px;
+  border-width: 1.5px;
+}
+
+#theme button:focus {
+  outline: none;
+}
+#theme button:hover {
+  cursor: pointer;
+}
+
+#theme button:nth-child(2) {
+  margin-right: 30px;
+}
+
+#theme button:nth-child(1) {
+  background-color: white;
+}
+#theme button:nth-child(2) {
+  background-color: black;
+}
+#theme button:nth-child(3) {
+  background-color: red;
+}
+#theme button:nth-child(4) {
+  background-color: orange;
+}
+#theme button:nth-child(5) {
+  background-color: green;
+}
+#theme button:nth-child(6) {
+  background-color: blue;
+}
+#theme button:nth-child(7) {
+  background-color: purple;
+}
+
+
+@media screen and (max-width: 360px) {
+  #theme button {
+    width : 16px;
+    height : 16px;
+  }
+}

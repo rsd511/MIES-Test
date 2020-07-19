@@ -1,26 +1,64 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from './components/Header';
+
+class App extends Component {
+
+	state = {
+		theme : {
+			background : 'white',
+			main : 'purple'
+		}
+	}
+
+	change_background_theme = (color) => {
+		this.setState({theme : {
+			background : color,
+			main : this.state.theme.main
+		}})
+	}
+
+	change_main_theme = (color) => {
+		this.setState({theme : {
+			background : this.state.theme.background,
+			main : color
+		}})
+	}
+
+	render() {
+
+		const rootStyle = {
+			backgroundColor : this.state.theme.background,
+			height : '100vh',
+			width : '100vw'
+		}
+
+		return (
+			<div style = {rootStyle} >
+				<Router>
+					<Switch>
+						<Route path = "/" exact>
+							<Header 
+								theme = {this.state.theme} 
+								change_background_theme = {this.change_background_theme}
+								change_main_theme = {this.change_main_theme} 
+							/>
+							
+						</Route>
+						<Route>
+							<Header 
+								theme = {this.state.theme} 
+								change_background_theme = {this.change_background_theme}
+								change_main_theme = {this.change_main_theme} 
+							/>
+						</Route>
+					</Switch>
+				</Router>
+			</div>
+		);
+	}
 }
 
 export default App;
