@@ -3,13 +3,14 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 
 import Header from './components/Header';
+import Home from './components/Home';
 
 class App extends Component {
 
 	state = {
 		theme : {
 			background : 'white',
-			main : 'purple'
+			main : 'blue'
 		}
 	}
 
@@ -45,7 +46,7 @@ class App extends Component {
 								change_background_theme = {this.change_background_theme}
 								change_main_theme = {this.change_main_theme} 
 							/>
-							
+							<Home theme = {this.state.theme} />
 						</Route>
 						<Route>
 							<Header 
