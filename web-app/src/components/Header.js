@@ -10,8 +10,12 @@ class Header extends Component {
 			color : this.props.theme.main
 		}
 
+		const navStyle = {
+			backgroundColor : this.props.theme.background
+		}
+
 		return (
-			<div className = "Nav" >
+			<div className = "Nav" style = {navStyle} >
 				<ul>
 					<li id = "home" >
 						<Link to = "/" >

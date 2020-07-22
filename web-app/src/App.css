@@ -1,0 +1,9 @@
+#root2 {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  min-height: 100%;
+}
+
+#root2::-webkit-scrollbar {
+  display: none;
+}

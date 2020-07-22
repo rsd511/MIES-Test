@@ -4,6 +4,7 @@ import './App.css';
 
 import Header from './components/Header';
 import Home from './components/Home';
+import Test from './components/Test';
 
 class App extends Component {
 
@@ -32,12 +33,13 @@ class App extends Component {
 
 		const rootStyle = {
 			backgroundColor : this.state.theme.background,
-			height : '100vh',
-			width : '100vw'
+			height : '100%',
+			width : '100%',
+			overflow : 'auto'
 		}
 
 		return (
-			<div style = {rootStyle} >
+			<div id = "root2" style = {rootStyle} >
 				<Router>
 					<Switch>
 						<Route path = "/" exact>
@@ -47,6 +49,14 @@ class App extends Component {
 								change_main_theme = {this.change_main_theme} 
 							/>
 							<Home theme = {this.state.theme} />
+						</Route>
+						<Route path = "/test" exact >
+							<Header 
+								theme = {this.state.theme} 
+								change_background_theme = {this.change_background_theme}
+								change_main_theme = {this.change_main_theme} 
+							/>
+							<Test theme = {this.state.theme} />
 						</Route>
 						<Route>
 							<Header 
