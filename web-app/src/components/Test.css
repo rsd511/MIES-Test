@@ -1,3 +1,25 @@
 .Test {
-  padding-top: 60px;
+  padding-top: 62px;
+  text-align: center;
+  margin: 5% 10%;
+}
+
+.Progress {
+  display: inline-block;
+  width: 100%;
+  padding-left: 0px;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.Progress li {
+  display: inline-block;
+  position: relative;
+  width: 9%;
+  border-width: 2px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-right: 1%;
+  height: 16px;
 }
