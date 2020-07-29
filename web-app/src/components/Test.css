@@ -47,3 +47,108 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+
+
+.Question {
+  border-style: solid;
+  border-width: 2px;
+  padding: 2% 5%;
+  margin-bottom: 1%;
+  border-radius: 6px;
+}
+.Question ul {
+  display: inline-block;
+  width: 100%;
+  padding: 0px;
+  margin: 0;
+  padding-top: 6px;
+}
+.Question ul li {
+  display: inline-block;
+  position: relative;
+  width: 19%;
+  box-sizing: border-box;
+  margin-right: 1%;
+  vertical-align: top;
+}
+.Question ul li input {
+  margin: 0;
+}
+
+.Question ul li input[type='radio']:after {
+  width: 12px;
+  height: 12px;
+  border-radius: 15px;
+  position: relative;
+  background-color: white;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 1px solid green;
+}
+.Question ul li input[type='radio']:checked:after {
+  width: 12px;
+  height: 12px;
+  border-radius: 15px;
+  position: relative;
+  background-color: green;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 1px solid green;
+}
+.Question ul li input[type='radio']:focus {
+  outline: none;
+}
+
+
+.navigation {
+  display: inline-block;
+  width: 100%;
+  padding-left: 0px;
+  margin: 0;
+  margin-top: 6px;
+}
+.navigation li {
+  display: inline-block;
+  position: relative;
+  width: 33%;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+.navigation li:nth-child(1) button {
+  float: left;
+}
+.navigation li:nth-child(3) button {
+  float: right;
+}
+.navigation button:focus {
+  outline: none;
+}
+.navigation button:hover {
+  cursor: pointer;
+}
+.navigation button {
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+
+
+@media screen and (max-width: 500px) {
+  .Question ul li {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .Question ul li {
+    font-size: 8px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .Question label {
+    font-size: 12px;
+  }
+}
