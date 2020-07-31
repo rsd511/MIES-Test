@@ -81,3 +81,11 @@
     margin-top: 6%;
   }
 }
+@media screen and (max-width: 360px) {
+  .Card p {
+    font-size: 18px;
+  }
+  .Intro p {
+    font-size: 8px;
+  }
+}
