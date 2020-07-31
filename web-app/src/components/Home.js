@@ -40,7 +40,7 @@ class Home extends Component {
         <div className = "Card" style = {cardColors} >
           <h1 style = {textStyle} > MIES-Test </h1>
           <p style = {textStyle} >
-            A test to predict & compare your introversion & extroversion!
+            A test to classify & compare your introversion & extroversion!
           </p>
           <Link to = "/test">
             <button style = {buttonStyle} > Take the test <i className="fa fa-chevron-circle-right" aria-hidden="true"></i> </button>

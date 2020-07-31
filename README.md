@@ -1,7 +1,7 @@
 
 # MIES-Test
 
-A test to predict & compare your introversion & extroversion!
+A test to classify & compare your introversion & extroversion!
 
 ---
 
