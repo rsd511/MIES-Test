@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Test.css';
+import './Home.css';
 
 import Queries from './Queries';
 
@@ -12,7 +13,9 @@ class Test extends Component {
     currentPage : 0,
     age : 1,
     gender : 0,
-    response : {}
+    response : {},
+    pageState : 0,
+    result : 0
   }
 
   componentDidMount() {
@@ -88,6 +91,26 @@ class Test extends Component {
     this.setState({currentPage : newpage});
   }
 
+  Testing = () => {
+    this.setState({ pageState : 1 });
+    let features = this.state.response;
+    features["gender"] = this.state.gender;
+    features["age"] = this.state.age;
+
+    let formData = new FormData();
+    formData.append("features", JSON.stringify(features));
+
+    fetch("https://mies-test-classifier.herokuapp.com/predict", {
+      method : 'POST',
+      body : formData
+    })
+    .then(response => response.json())
+      .then((jsonResponse) => {
+        this.setState({ pageState : 2 });
+        this.setState({ result : jsonResponse['classification'] });
+      });
+  }
+
   render() {
 
     const basicStyle = {
@@ -99,6 +122,15 @@ class Test extends Component {
       color : this.props.theme.background,
       backgroundColor : this.props.theme.main,
       borderColor : this.props.theme.main
+    }
+
+    const introColors = {
+      backgroundColor : this.props.theme.background,
+      borderColor : this.props.theme.main
+    };
+
+    const textStyle = { 
+      color : this.props.theme.main
     }
 
     let progressSlot = []
@@ -182,7 +214,9 @@ class Test extends Component {
       }
     }
 
-    return (
+    let pageWithState = []
+
+    pageWithState.push(
       <div className = "Test" >
         <div style = {{height : '36px'}} ></div>
         <ul className = "Progress" >
@@ -224,7 +258,7 @@ class Test extends Component {
             <li>
               {
                 (this.state.currentPage === 9)
-                ? <button style = {inverseStyle } >Submit</button>
+                ? <button type = "button" onClick = {this.Testing} style = {inverseStyle } >Submit</button>
                 : <button onClick = {this.goNext} style = {basicStyle} >Next</button>
               }
             </li>
@@ -232,6 +266,64 @@ class Test extends Component {
         </form>
       </div>
     );
+
+    pageWithState.push(
+      <div className = "TEST" >
+        <div style = {{height : '64px'}} ></div>
+        <div className = "Intro" style = {introColors} >
+          <h2 style = {textStyle} > Classifying... </h2>
+          <p style = {textStyle} ></p>
+        </div>
+      </div>
+    );
+
+    pageWithState.push(
+      <div className = "TEST" >
+        <div style = {{height : '64px'}} ></div>
+        {
+          (this.state.result === 1)
+          ? <div className = "Intro" style = {introColors} >
+              <h2 style = {textStyle} > You are an Introvert! </h2>
+              <p style = {textStyle} >
+                Introversion is the state of being predominantly interested in one's own mental self. Introverts are typically perceived as more reserved or reflective. Some popular psychologists have characterized introverts as people whose energy tends to expand through reflection and dwindle during interaction.
+                <br></br> 
+                <br></br> 
+                An introvert is likely to enjoy time spent alone and find less reward in time spent with large groups of people. Introverts are easily overwhelmed by too much stimulation from social gatherings and engagement.
+                <br></br> 
+                <br></br> 
+                They prefer to concentrate on a single activity at a time and like to observe situations before they participate, especially observed in developing children and adolescents. They are more analytical before speaking. 
+              </p>
+            </div>
+          : (this.state.result === 2)
+            ? <div className = "Intro" style = {introColors} >
+                <h2 style = {textStyle} > You are an Extrovert! </h2>
+                <p style = {textStyle} >
+                  Extraversion (also spelled as extroversion) is the state of primarily obtaining gratification from outside oneself. Extraverts tend to enjoy human interactions and to be enthusiastic, talkative, assertive, and gregarious.
+                  <br></br> 
+                  <br></br> 
+                  Extraverts are energized and thrive off being around other people. They take pleasure in activities that involve large social gatherings, such as parties, community activities, public demonstrations, and business or political groups. They also tend to work well in groups. 
+                  <br></br>
+                  <br></br>
+                  An extraverted person is likely to enjoy time spent with people and find less reward in time spent alone. They tend to be energized when around other people, and they are more prone to boredom when they are by themselves.
+                </p>
+              </div>
+            : <div className = "Intro" style = {introColors} >
+                <h2 style = {textStyle} > You are an Ambivert! </h2>
+                <p style = {textStyle} >
+                  Although many people view being introverted or extraverted as mutually exclusive, most contemporary trait theories measure levels of extraversion-introversion as part of a single, continuous dimension of personality, with some scores near one end, and others near the halfway mark.
+                  <br></br> 
+                  <br></br> 
+                  Ambiversion is falling more or less directly in the middle. An ambivert is moderately comfortable with groups and social interaction, but also relishes time alone, away from a crowd.
+                  <br></br> 
+                  <br></br> 
+                  In the face of authority or in the presence of strangers, the person may be introverted. However, in the presence of family or close friends, the person may be highly energetic or extraverted.
+                </p>
+              </div> 
+        }
+      </div>
+    );
+
+    return (pageWithState[this.state.pageState]);
   }
 }
 

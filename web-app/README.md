@@ -1,2 +1,3 @@
 # Web-App
-In progress!
+
+UI built with ReactJS is connected to the machine learning model using FLask API
